@@ -4,7 +4,7 @@
 
 int main()
 {
-	int input=612;
+	int input = 612;
 	double x0 = 1, x1 = 1;
 	struct timespec start, end;
 	clock_gettime(CLOCK_REALTIME, &start);
