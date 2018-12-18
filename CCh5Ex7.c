@@ -8,11 +8,6 @@
 
 static unsigned seed = INITIAL_SEED;
 static double current_average = 0;
-unsigned random(void)
-{
-	seed = (MULTIPLIER * seed + INCREMENT) % MODULUS;
-	return seed;
-}
 
 double probability(void)
 {

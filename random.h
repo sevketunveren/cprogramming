@@ -15,7 +15,7 @@ int* fill_array(int start, int size)
 {
 	int *array  = (int*)malloc(size*sizeof(int));
 	seed = start;
-	for (int i=0; i<size; ++i)
+	for (int i = 0; i < size; ++i)
 		array[i] = probability();
 	return array;
 }
