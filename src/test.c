@@ -10,6 +10,6 @@ gcc -o libdepsam.exe "include\\engineering\\electrical\\ee.o" "src\\test.o"
 int main()
 {
 	printf("%lf\n", FRICTION_COEFFICIENT);
-	printf("%d", GetVoltage(2));
+	printf("%d", GetVoltage(1));
 	return 0;
 }
