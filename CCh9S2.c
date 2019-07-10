@@ -22,7 +22,7 @@ void update(employee_data *p) {
 }
 
 int main() {
-	/*employee_data e;
+	/*employee_data *e;
 	e = (employee_data*) malloc (1 * sizeof(employee_data)); //for array change 1 to length of array
 	update(&e);
 	printf("Department Number: %d\n", e.department.dept_no);*/
