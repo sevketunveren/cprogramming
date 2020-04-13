@@ -54,6 +54,5 @@ int main(void) {
 	while(!empty(&s))
 		putchar(pop(&s));
 	putchar('\n');
-	printf("HALLA\n");
 	return 0;
 }
