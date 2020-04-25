@@ -21,7 +21,8 @@ void shuffle(card deck[52]);
 void swap(card* p, card* q);
 void deal_the_cards(card deck[52], card hand[NPLAYERS][5]);
 int is_flush(card h[5]);
-
+int is_straight(card h[5]);
+int compare(const card* c1, const card* c2);
 void main() {
 	cdhs suit;
 	int i, pips;
@@ -72,9 +73,16 @@ void play_poker(card deck[52]){
 			++hand_cnt;
 			if(is_flush(hand[j])) {
 				flush_cnt++;
-				for(h = 0; h < 5; ++h)
+				printf("Flush\n");
+				for(h = 0; h < 5; ++h) {
 					prn_card_values(&hand[j][h]);
-				printf("%s%d\n\%s%d\n%s%f\n", "Hand Number:", hand_cnt, "Flush Number:", flush_cnt, "Flush probability:", (double) flush_cnt/hand_cnt);
+				/*printf("%s%d\n\%s%d\n%s%f\n", "Hand Number:", hand_cnt, "Flush Number:", flush_cnt, "Flush probability:", (double) flush_cnt/hand_cnt);*/
+				}
+			}
+			else if(is_straight(hand[j])) {
+				printf("Straight\n");
+				for(h = 0; h < 5; ++ h)
+					prn_card_values(&hand[j][h]);
 			}
 		}
 	}
@@ -110,3 +118,20 @@ int is_flush(card h[5]) {
 			return 0;
 	return 1;
 } 
+
+int compare(const card* c1, const card* c2) {
+	if((c1->pips) > (c2->pips))
+		return 1;
+	return 0;
+}
+
+int is_straight(card h[5]) {
+	qsort(h, 5, sizeof(card), compare);
+	if( (h[0].pips + 1 == h[1].pips || h[0].pips + 12 == h[4].pips) &&
+	    h[1].pips + 1 == h[2].pips &&
+	    h[2].pips + 1 == h[3].pips &&
+	    h[3].pips + 1 == h[4].pips
+	  )
+		return 1;
+	return 0;
+}
