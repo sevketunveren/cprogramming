@@ -21,7 +21,7 @@ void bit_print_four(int a) { //little endian
 	}
 }
 
-void bit_print_thiryt_two(int a) {
+void bit_print_thirty_two(int a) {
 	int i;
 	int mask = 1 << 31;
 	for (i = 1; i <= 32; ++i) {
