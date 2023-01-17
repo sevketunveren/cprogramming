@@ -1,0 +1,3 @@
+/home/alp/CCh10S3/build/CMakeFiles/CCh10S3.dir
+/home/alp/CCh10S3/build/CMakeFiles/edit_cache.dir
+/home/alp/CCh10S3/build/CMakeFiles/rebuild_cache.dir
