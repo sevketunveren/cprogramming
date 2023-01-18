@@ -13,14 +13,16 @@ typedef enum
     true
 } boolean;
 
-struct elem {
+struct elem
+{
     data d;
     struct elem *next;
 };
 
 typedef struct elem elem;
 
-struct stack {
+struct stack
+{
     int cnt;
     elem *top;
 };
@@ -28,3 +30,5 @@ struct stack {
 typedef struct stack stack;
 
 void initialize(stack *stk);
+void push(data d, stack *stk);
+void pop(stack *stk);
