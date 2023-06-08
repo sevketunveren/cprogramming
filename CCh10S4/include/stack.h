@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char data;
+typedef char* data;
+
 typedef enum
 {
     false,
