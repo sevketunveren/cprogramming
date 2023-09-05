@@ -13,6 +13,6 @@ unsigned int count(LINK);
 LINK find(DATA d, LINK);
 void concatenate(LINK, LINK);
 void insertElement(LINK, LINK, LINK);
-void delete(LINK, LINK);
+void delete(LINK*, LINK);
 void clear(LINK);
 void print(LINK);

@@ -87,15 +87,23 @@ void insertElement(LINK list, LINK before, LINK insert)
     }
 }
 
-void delete (LINK list, LINK element)
+void delete (LINK* list, LINK element)
 {
-    for (; list != NULL; list = list->next)
+    if(*list == element)
     {
-        if (list->next->d == element->d)
+        LINK newlist = NULL;
+        allocateELEMENT(&newlist);
+        newlist = (*list)->next;
+        free(element);
+        return;
+    }
+    for (LINK l = *list; l != NULL; l = l->next)
+    {
+        if (l->next->d == element->d)
         {
             LINK temp = element->next;
             free(element);
-            list->next = temp;
+            l->next = temp;
             break;
         }
     }
