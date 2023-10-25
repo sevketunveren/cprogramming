@@ -24,7 +24,7 @@ void main()
     insertElement(head, l1, branch2);
     print(head);
     l2 = find("PEAR", head);
-    delete (head, l2);
+    delete (&head, l2);
     print(head);
     clear(head);
 }
@@ -32,7 +32,7 @@ void main()
 void allocateELEMENT(LINK *l)
 {
     *l = (LINK)malloc(sizeof(ELEMENT));
-    (*l)->next = NULL;
+    //(*l)->next = NULL;
 }
 
 void addElement(DATA d, LINK list)
