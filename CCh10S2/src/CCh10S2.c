@@ -94,6 +94,7 @@ void delete (LINK* list, LINK element)
         LINK newlist = NULL;
         allocateELEMENT(&newlist);
         newlist = (*list)->next;
+        *list=newlist;
         free(element);
         return;
     }
