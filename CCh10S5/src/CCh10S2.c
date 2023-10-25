@@ -5,7 +5,7 @@
 void allocateELEMENT(LINK *l)
 {
     *l = (LINK)malloc(sizeof(ELEMENT));
-    (*l)->next = NULL;
+    //(*l)->next = NULL;
 }
 
 LINK addElement(DATA d, LINK list)
