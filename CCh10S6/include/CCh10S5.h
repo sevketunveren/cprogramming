@@ -7,6 +7,6 @@
     LINK rear;
  };
  typedef struct queue queue;
- void initialize(queue*);
+ void initialize(queue**);
  void enqueue(NODE n, queue*);
  void dequeue(queue*);

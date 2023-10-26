@@ -35,7 +35,7 @@ LINK find(NODE n, LINK list)
 {
     for (; list != NULL; list = list->next)
     {
-        if (list->n.value == n.value)
+        if (list->n == n)
             return list;
     }
     return NULL;
@@ -74,7 +74,7 @@ void delete (LINK* list, LINK element)
     }
     for (LINK l = *list; l != NULL; l = l->next)
     {
-        if (l->next->n.value == element->n.value)
+        if (l->next->n == element->n)
         {
             LINK temp = element->next;
             free(element);
@@ -97,8 +97,8 @@ void print(LINK list)
 {
     if (list != NULL)
     {
-        printf("%s ---> ", list->n.value);
-        print(list->next->n.value);
+        printf("%s ---> ", list->n->value);
+        print(list->next);
     }
     if (list == NULL)
         printf("NULL\n");

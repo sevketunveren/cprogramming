@@ -6,7 +6,7 @@ struct node
     struct node* left;
     struct node* right;
 };
-typedef struct node NODE;
+typedef struct node* NODE;
 struct linked_list
 {
     NODE n;

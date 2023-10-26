@@ -1,14 +1,15 @@
 #include <CCh10S5.h>
 
-void initialize(queue* q)
+void initialize(queue** q)
 {
-    allocateELEMENT(&(q->front));
-    allocateELEMENT(&(q->rear));
+    (*q) = malloc(sizeof(queue));
+    allocateELEMENT(&((*q)->front));
+    allocateELEMENT(&((*q)->rear));
 }
 
 void enqueue(NODE d, queue* q)
 {
-    if(q->front->n.value == NULL)
+    if(q->front->n == NULL)
     {
         q->front->n = d;
         q->rear = q->front;
