@@ -30,6 +30,18 @@ void addNode(NODE* root, DATA nb)
             enqueue(q->front->n->right, q);
         dequeue(q);
     }
-    //
     free(q);
+}
+
+
+void printBinaryTree(NODE root)
+{
+    if(root == NULL)
+        return;
+    else
+    {
+        printf("%s\t", root->value);
+        printBinaryTree(root->left);
+        printBinaryTree(root->right);
+    }
 }

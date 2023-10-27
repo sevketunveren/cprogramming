@@ -37,4 +37,5 @@ void main()
     addNode(&root,"LEVEL3-RLR");
     addNode(&root,"LEVEL3-RRL");
     addNode(&root,"LEVEL3-RRR");
+    printBinaryTree(root);
 }
