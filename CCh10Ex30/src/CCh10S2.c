@@ -1,41 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <CCh10S2.h>
-void main()
-{
-    LINK head = NULL;
-    LINK temp = NULL;
-    LINK nhead = NULL;
-    LINK branch1 = NULL;
-    LINK branch2 = NULL;
-    allocateELEMENT(&head);
-    allocateELEMENT(&nhead);
-    allocateELEMENT(&branch1);
-    allocateELEMENT(&branch2);
-    head->d = "APPLE";
-    branch1->d = "MANDARIN";
-    branch2->d = "BANANA";
-    addElement("FIG", head);
-    addElement("ORANGE", head);
-    print(head);
-    LINK l2 = find("PEAR", head);
-    addElement("PEAR", branch1);
-    addElement("STRAWBERRY", branch1);
-    concatenate(head, branch1);
-    print(head);
-    LINK l1 = find("ORANGE", head);
-    insertElement(head, l1, branch2);
-    print(head);
-    l2 = find("PEAR", head);
-    delete (&head, l2);
-    print(head);
-    nhead->d = "BLUEBERRY";
-    nhead->next = head;
-    head = nhead; 
-    print(head);    
-    free(nhead);
-    clear(head);
-}
 
 void allocateELEMENT(LINK *l)
 {
@@ -43,13 +8,14 @@ void allocateELEMENT(LINK *l)
     //(*l)->next = NULL;
 }
 
-void addElement(DATA d, LINK list)
+LINK addElement(NODE n, LINK list)
 {
     for (; list->next != NULL; list = list->next)
     {
     }
     allocateELEMENT(&(list->next));
-    list->next->d = d;
+    list->next->n = n;
+    return list->next;
 }
 
 unsigned int count(LINK list)
@@ -65,11 +31,11 @@ unsigned int count(LINK list)
     return count;*/
 }
 
-LINK find(DATA d, LINK list)
+LINK find(NODE n, LINK list)
 {
     for (; list != NULL; list = list->next)
     {
-        if (list->d == d)
+        if (list->n == n)
             return list;
     }
     return NULL;
@@ -86,7 +52,7 @@ void concatenate(LINK l1, LINK l2)
 void insertElement(LINK list, LINK before, LINK insert)
 {
     // insert may be a link list
-    LINK found = find(before->d, list);
+    LINK found = find(before->n, list);
     if (found && before == found) // to avoid duplicate
     {
         LINK temp = before->next;
@@ -108,7 +74,7 @@ void delete (LINK* list, LINK element)
     }
     for (LINK l = *list; l != NULL; l = l->next)
     {
-        if (l->next->d == element->d)
+        if (l->next->n == element->n)
         {
             LINK temp = element->next;
             free(element);
@@ -131,7 +97,7 @@ void print(LINK list)
 {
     if (list != NULL)
     {
-        printf("%s ---> ", list->d);
+        printf("%d ---> ", list->n->value);
         print(list->next);
     }
     if (list == NULL)
