@@ -8,7 +8,7 @@ void allocateELEMENT(LINK *l)
     //(*l)->next = NULL;
 }
 
-LINK addElement(NODE n, LINK list)
+LINK addElement(NODEPTR n, LINK list)
 {
     for (; list->next != NULL; list = list->next)
     {
@@ -31,7 +31,7 @@ unsigned int count(LINK list)
     return count;*/
 }
 
-LINK find(NODE n, LINK list)
+LINK find(NODEPTR n, LINK list)
 {
     for (; list != NULL; list = list->next)
     {

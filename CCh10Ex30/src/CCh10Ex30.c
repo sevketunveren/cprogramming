@@ -1,5 +1,5 @@
 #include <CCh10Ex30.h>
-void addNode(NODE* root, DATA nb)
+void addNode(NODEPTR* root, DATA nb)
 {
     if(*root == NULL)
     {
@@ -39,7 +39,7 @@ void addNode(NODE* root, DATA nb)
     free(q);
 }
 
-void addNodeCmp(NODE* root, DATA nb)
+void addNodeCmp(NODEPTR* root, DATA nb)
 {
     if(*root == NULL)
     {
@@ -59,7 +59,7 @@ void addNodeCmp(NODE* root, DATA nb)
     }
 }
 
-void printBinaryTree(NODE root)
+void printBinaryTree(NODEPTR root)
 {
     if(root == NULL)
         return;
@@ -68,5 +68,27 @@ void printBinaryTree(NODE root)
         printf("%d\t", root->value);
         printBinaryTree(root->left);
         printBinaryTree(root->right);
+    }
+}
+
+NODEPTR rigthMost(NODEPTR root, NODEPTR* parent)
+{
+    if(root==NULL)
+    {
+        return NULL; 
+    }
+    else if(root->right != NULL)
+    {
+        *parent = root;
+        rigthMost(root->right, parent);
+    }
+    else if(root->left != NULL)
+    {
+        *parent = root;
+        rigthMost(root->left, parent);
+    }
+    else
+    {
+        return root;
     }
 }

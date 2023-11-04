@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #define SIZE 1000
 #define MAX 100
-void addNode(NODE*, DATA);
-void printBinaryTree(NODE);
-void addNodeCmp(NODE*, DATA);
+void addNode(NODEPTR*, DATA);
+void printBinaryTree(NODEPTR);
+void addNodeCmp(NODEPTR*, DATA);
+NODEPTR rigthMost(NODEPTR, NODEPTR*);

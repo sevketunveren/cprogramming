@@ -1,22 +1,25 @@
 #include <CCh10Ex30.h>
 void main()
 {
-    NODE root = NULL;
-    int r;
-    int k;
-    srand(time(NULL));   // Initialization, should only be called once.
-    r = rand()%50;
-    for(int i =0; i<r;++i)
-    {
-        k = rand()%100;
-        if(rand()%2==1)
-        {
-            k=-k;
-        }
-        printf("New Element: %d\t", k);
-        addNodeCmp(&root,k);
-    }
-    printf("\n");
+    NODEPTR root = NULL;
+    NODEPTR parent;
+    NODEPTR rm;
+    addNodeCmp(&root, 65);
+    addNodeCmp(&root, 56);
+    addNodeCmp(&root, 67);
+    addNodeCmp(&root, 48);
+    addNodeCmp(&root, 59);
+    addNodeCmp(&root, 66);
+    printBinaryTree(root);
+    rm=rigthMost(root, &parent);
+    rm->left = root->left;
+    rm->right = root->right;
+    root = rm;
+    parent->left = NULL;
+    rm = NULL;
+    parent = NULL;
+    free(parent);
+    free(rm);
     printf("\n");
     printBinaryTree(root);
 }

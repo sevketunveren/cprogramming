@@ -6,18 +6,18 @@ struct node
     struct node* left;
     struct node* right;
 };
-typedef struct node* NODE;
+typedef struct node* NODEPTR;
 struct linked_list
 {
-    NODE n;
+    NODEPTR n;
     struct linked_list *next;
 };
 typedef struct linked_list ELEMENT;
 typedef ELEMENT *LINK;
 void allocateELEMENT(LINK*);
-LINK addElement(NODE, LINK);
+LINK addElement(NODEPTR, LINK);
 unsigned int count(LINK);
-LINK find(NODE d, LINK);
+LINK find(NODEPTR d, LINK);
 void concatenate(LINK, LINK);
 void insertElement(LINK, LINK, LINK);
 void delete(LINK*, LINK);

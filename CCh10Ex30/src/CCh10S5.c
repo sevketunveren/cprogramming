@@ -7,7 +7,7 @@ void initialize(queue** q)
     allocateELEMENT(&((*q)->rear));
 }
 
-void enqueue(NODE d, queue* q)
+void enqueue(NODEPTR d, queue* q)
 {
     if(q->front->n == NULL)
     {
